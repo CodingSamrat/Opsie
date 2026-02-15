@@ -1,0 +1,33 @@
+{
+  "name": "opsie",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Samrat <sam@veninfox.in>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingSamrat/Opsie.git"
+  },
+  "homepage": "https://github.com/CodingSamrat/Opsie#readme",
+  "bugs": {
+    "url": "https://github.com/CodingSamrat/Opsie/issues"
+  },
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
