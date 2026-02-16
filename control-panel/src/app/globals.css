@@ -45,6 +45,13 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Custom Styles **********************************/
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-2: var(--brand-2);
+  --color-brand-2-foreground: var(--brand-2-foreground);
+
 }
 
 :root {
@@ -80,6 +87,13 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+
+  /* Custom Styles **********************************/
+  --brand: oklch(64.14% 0.24476 30.406);
+  --brand-foreground: oklch(1 0 0);
+  --brand-2: oklch(79.936% 0.15028 79.73);
+  --brand-2-foreground: oklch(1 0 0);
 }
 
 .dark {
@@ -114,6 +128,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+
+  /* Custom Styles **********************************/
+  --brand: oklch(62.845% 0.22127 30.351);
+  --brand-foreground: oklch(1 0 0);
+  --brand-2: oklch(77.53% 0.07786 83.349);
+  --brand-2-foreground: oklch(1 0 0);
 }
 
 @layer base {
