@@ -1,6 +1,6 @@
 import Fastify from "fastify";
 
-export function BuildServer() {
+export default function OpsieServer() {
     const app = Fastify({ logger: true });
 
     app.get("/", async () => {

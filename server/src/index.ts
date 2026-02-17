@@ -1,12 +1,12 @@
-import { BuildServer } from "@/server";
+import OpsieServer from "@/server";
 
 
 
-const app = BuildServer();
+const server = OpsieServer();
 
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 2121;
 
-app.listen({ port, host: "0.0.0.0" }).catch((err) => {
-    app.log.error(err);
+server.listen({ port, host: "0.0.0.0" }).catch((err) => {
+    server.log.error(err);
     process.exit(1);
 });

@@ -6,7 +6,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "2121:5000"
     volumes:
       - ./server:/app
       - /app/node_modules
@@ -25,12 +25,12 @@ services:
       context: ./control-panel
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "1212:3000"
     volumes:
       - ./control-panel:/app
       - /app/node_modules
     environment:
-      NEXT_PUBLIC_API_URL: http://opsie-server:5000
+      NEXT_PUBLIC_API_URL: http://127.0.0.1:2121
       WATCHPACK_POLLING: true
 
     depends_on:
