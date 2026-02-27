@@ -47,38 +47,38 @@ export function findByProperty<T, K extends keyof T>(array: T[], key: K, value: 
 
 
 // EJS - Template ---------------------------------------------------------------------------------------
-import ejs from 'ejs';
-import path from 'path';
+// import ejs from 'ejs';
+// import path from 'path';
 
-export async function renderTemplate(templateName: string, data: Record<string, any> = {}): Promise<string> {
-    try {
-        const filePath = path.join(__dirname, '../templates', `${templateName}.ejs`);
-        const html = await ejs.renderFile(filePath, data, { async: true });
-        return html;
-    } catch (error) {
-        console.error('❌ Failed to render template:', error);
-        throw error;
-    }
-};
+// export async function renderTemplate(templateName: string, data: Record<string, any> = {}): Promise<string> {
+//     try {
+//         const filePath = path.join(__dirname, '../templates', `${templateName}.ejs`);
+//         const html = await ejs.renderFile(filePath, data, { async: true });
+//         return html;
+//     } catch (error) {
+//         console.error('❌ Failed to render template:', error);
+//         throw error;
+//     }
+// };
 
 
 
-// PDF ---
-import puppeteer from 'puppeteer';
+// // PDF ---
+// import puppeteer from 'puppeteer';
 
-export async function generatePdfFromHtml(html: string): Promise<Buffer> {
-    const browser = await puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
-    const page = await browser.newPage();
+// export async function generatePdfFromHtml(html: string): Promise<Buffer> {
+//     const browser = await puppeteer.launch({
+//         headless: true,
+//         args: ['--no-sandbox', '--disable-setuid-sandbox'],
+//     });
+//     const page = await browser.newPage();
 
-    await page.setContent(html, { waitUntil: 'networkidle0' });
-    const pdfBuffer = await page.pdf({
-        format: 'A4',
-        printBackground: true,
-    });
+//     await page.setContent(html, { waitUntil: 'networkidle0' });
+//     const pdfBuffer = await page.pdf({
+//         format: 'A4',
+//         printBackground: true,
+//     });
 
-    await browser.close();
-    return Buffer.from(pdfBuffer);;
-};
+//     await browser.close();
+//     return Buffer.from(pdfBuffer);;
+// };

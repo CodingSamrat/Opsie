@@ -1,5 +1,6 @@
 import Routes from '@/routes/';
 import Fastify from 'fastify';
+import XENV from './env.config';
 
 /**
  * Builds and configures the Fastify application instance.
@@ -8,7 +9,11 @@ import Fastify from 'fastify';
 export default async function BuildApp() {
     /// Creating Fastify instance with logging enabled
     const app = Fastify({
-        logger: true,
+        logger: XENV.IsDev ? {
+            level: "info"
+        } : {
+            level: "warn"
+        },
     });
 
 
@@ -21,6 +26,7 @@ export default async function BuildApp() {
     /// Registering routes
     app.register(async (v1) => {
         v1.register(Routes.UserRoutes, { prefix: '/user' });
+        v1.register(Routes.AuthRoutes, { prefix: '/auth' });
     }, { prefix: '/api/v1' });
 
 

@@ -14,20 +14,36 @@ down:
 
 
 # Run the control panel in development mode using `--turbopack`.
-otcp: # Opsie Turbopack Control Panel
+cp-dev: # Opsie Turbopack Control Panel
 	@cd control-panel && npm run dev-tb
 
 
+# View the logs of the server.
+cp-log:
+	@docker compose logs -f opsie-control-panel
+
+
+
 # Run the server & database.
-up-server:
+server-build:
+	@docker compose build opsie-server
+
+
+# Run the server & database.
+server-up:
 	@docker compose up opsie-pg opsie-server -d
 
 
+# Run the server & database with fresh build.
+server-up-b:
+	@docker compose up --build opsie-pg opsie-server -d
+
+
 # Stop the server & database.
-down-server:
+server-down:
 	@docker compose down opsie-pg opsie-server 
 
 
 # View the logs of the server.
-log-server:
+server-log:
 	@docker compose logs -f opsie-server
