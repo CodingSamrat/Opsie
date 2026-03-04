@@ -1,8 +1,14 @@
-import { FastifyInstance } from "fastify";
 import AuthHandler from "./auth.handler";
+import { XRouter } from "@/x-kit";
 
 
-export default async function AuthRoutes(app: FastifyInstance) {
-    app.post('/login', AuthHandler.Login);
+// App Routes (/api/v1/auth/*)
+const AuthRouter = XRouter()
 
-}
+
+/// Register Routes
+AuthRouter.post("/login", AuthHandler.Login)
+
+
+/// Return the router 
+export default AuthRouter;

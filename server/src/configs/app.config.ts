@@ -1,35 +1,40 @@
-import Routes from '@/routes/';
-import Fastify from 'fastify';
-import XENV from './env.config';
+import express from 'express';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import RootApiRouter from '@/routes';
+
+
 
 /**
  * Builds and configures the Fastify application instance.
  * @returns A configured Fastify application instance ready to be started.
  */
 export default async function BuildApp() {
-    /// Creating Fastify instance with logging enabled
-    const app = Fastify({
-        logger: XENV.IsDev ? {
-            level: "info"
-        } : {
-            level: "warn"
-        },
-    });
+    /// Initialize App
+    const app = express();
 
 
-    /// Health Check Endpoint
-    app.get("/health", async () => {
-        return { statusCode: 200, success: true, message: "Server is up & running..." };
-    });
+    /// Middlewares
+    app.use(cors({
+        origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : [],
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        credentials: true
+    }));
+    app.use(express.json());
+    app.use(cookieParser());
+    app.use(helmet());
+    app.use(morgan("dev"));
+    app.use(express.urlencoded({ extended: true }));
 
 
-    /// Registering routes
-    app.register(async (v1) => {
-        v1.register(Routes.UserRoutes, { prefix: '/user' });
-        v1.register(Routes.AuthRoutes, { prefix: '/auth' });
-    }, { prefix: '/api/v1' });
+
+    /// Register Routes
+    app.use(`/api/v1`, RootApiRouter);
 
 
-    /// Returning the configured Fastify instance
+
+    /// Returning the configured app
     return app;
 }
