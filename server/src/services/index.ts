@@ -4,13 +4,18 @@
 // Description: Centralized export of all service modules.
 // =================================================================================
 
+import AuthService from "./auth/auth.service";
+
 
 /// Importing individual services
 
 
 
 /// Centralized service registry
-const Services = {
+const XServices = {
+    auth: new AuthService(),
+
+
 } as const;
 
-export default Services;
+export default XServices;
