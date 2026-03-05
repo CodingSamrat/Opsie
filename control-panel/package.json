@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "next dev --webpack",
-    "dev-tb": "next dev",
+    "dev-tb": "next dev -p 1212",
     "build": "next build",
     "start": "next start"
   },
