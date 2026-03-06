@@ -6,7 +6,7 @@ export default class AuthHandler {
     async Login(request: XRequest, response: XResponse): Promise<void> {
 
         console.log(request.body);
-        console.log(); XServices.auth.Login()
+        console.log(); await XServices.auth.Login()
 
         XSendResponse(response, 200, { message: 'logged in!', s: 9789 })
     }
