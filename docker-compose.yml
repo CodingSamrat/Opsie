@@ -30,7 +30,6 @@ services:
       - ./control-panel:/app
       - /app/node_modules
     environment:
-      NEXT_PUBLIC_API_URL: http://127.0.0.1:2121
       WATCHPACK_POLLING: true
 
     depends_on:

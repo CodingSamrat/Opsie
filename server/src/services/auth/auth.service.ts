@@ -5,7 +5,7 @@ export default class AuthService {
     async Login(): Promise<void> {
 
         console.log("Login Service");
-        throw new XError(XErrorMsg.BAD_REQUEST);
+        // throw new XError(XErrorMsg.BAD_REQUEST);
 
     }
 }

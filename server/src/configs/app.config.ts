@@ -17,11 +17,11 @@ export default async function BuildApp() {
 
 
     /// Middlewares
-    app.use(cors({
-        origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : [],
-        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-        credentials: true
-    }));
+    // app.use(cors({
+    //     origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : [],
+    //     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    //     credentials: true
+    // }));
     app.use(express.json());
     app.use(cookieParser());
     app.use(helmet());
@@ -31,7 +31,7 @@ export default async function BuildApp() {
 
 
     /// Register Routes
-    app.use(`/api/v1`, RootApiRouter);
+    app.use(`/api`, RootApiRouter);
 
 
 

@@ -8,6 +8,6 @@ export default class AuthHandler {
         console.log(request.body);
         console.log(); await XServices.auth.Login()
 
-        XSendResponse(response, 200, { message: 'logged in!', s: 9789 })
+        XSendResponse(response, 200, { message: 'logged in!', })
     }
 }
